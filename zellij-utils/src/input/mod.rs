@@ -66,6 +66,7 @@ mod not_wasm {
         };
 
         match event.key {
+            KeyCode::Char('\0') => Key::Ctrl(' '),
             KeyCode::Char(c) => {
                 if modifiers.contains(Modifiers::CTRL) {
                     Key::Ctrl(c.to_lowercase().next().unwrap_or_default())

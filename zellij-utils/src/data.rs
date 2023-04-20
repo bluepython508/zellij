@@ -72,6 +72,7 @@ impl FromStr for Key {
             }
         }
         match (modifier, main_key) {
+            (Some("Ctrl"), Some("Space")) => Ok(Key::Ctrl(' ')),
             (Some("Ctrl"), Some(main_key)) => {
                 let mut key_chars = main_key.chars();
                 let key_count = main_key.chars().count();
